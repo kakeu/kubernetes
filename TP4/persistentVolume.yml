@@ -1,0 +1,15 @@
+apiVersion: V1
+kind: PersistentVolume
+metadata:
+  name: pv-voll
+spec:
+  accessModes:
+      - ReadWriteOne
+  capacity:
+      storage: 1Gi
+      
+  awsElasticBlockStore:
+    volumeID: <volume-id>
+    fsType: ext4
+
+        

@@ -1,0 +1,20 @@
+apiVersion: V1
+kind: pod
+metadata:
+  name: random-number-generator
+spec:
+  containers:
+  - name: alpine
+    image: alpine
+    command: ["/bin/sh*,"-c"]
+    args: ["shuf -f 0-100 -n l >> /opt/bunhwr.out;"]
+    volumeMounts:
+    - mountPath: /opt
+      name: data-volume
+      
+   volumes:
+   - name: data-volume
+     hostPath:
+        path: /data
+        type: Directory
+        
